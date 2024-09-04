@@ -34,7 +34,8 @@
     "electron-builder": "~23.6.0",
     "electron-installer-snap": "^5.2.0",
     "electron-rebuild": "^3.2.9",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "app-builder-lib": ">=24.13.2"
   },
   "keywords": [
     "capacitor",
