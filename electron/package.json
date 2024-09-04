@@ -27,15 +27,15 @@
     "electron-serve": "~1.1.0",
     "electron-unhandled": "~4.0.1",
     "electron-updater": ">=6.3.0-alpha.6",
-    "electron-window-state": "^5.0.3"
+    "electron-window-state": "^5.0.3",
+    "app-builder-lib": ">=24.13.2"
   },
   "devDependencies": {
     "electron": "^26.2.2",
     "electron-builder": "~23.6.0",
     "electron-installer-snap": "^5.2.0",
     "electron-rebuild": "^3.2.9",
-    "typescript": "^5.0.4",
-    "app-builder-lib": ">=24.13.2"
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "capacitor",
