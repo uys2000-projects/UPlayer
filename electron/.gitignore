@@ -5,4 +5,5 @@ app
 node_modules
 build
 dist
+!./dist/latest.yml
 logs

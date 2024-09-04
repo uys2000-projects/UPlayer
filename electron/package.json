@@ -1,19 +1,20 @@
 {
   "name": "uplayer",
   "version": "1.0.0",
-  "description": "An Amazing Capacitor App",
+  "description": "Simple IP TV App",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Mehmet Uysal",
+    "email": "siliente2020@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/uys2000-projects/UPlayer"
   },
   "license": "MIT",
   "main": "build/src/index.js",
   "scripts": {
     "build": "tsc && electron-rebuild",
+    "build:snap": "npm run build  && electron-builder build --dir -c ./electron-builder.config.json --linux snap",
     "electron:start-live": "node ./live-runner.js",
     "electron:start": "npm run build && electron --inspect=5858 ./",
     "electron:pack": "npm run build && electron-builder build --dir -c ./electron-builder.config.json --win --linux",
@@ -31,11 +32,13 @@
   "devDependencies": {
     "electron": "^26.2.2",
     "electron-builder": "~23.6.0",
+    "electron-installer-snap": "^5.2.0",
     "electron-rebuild": "^3.2.9",
     "typescript": "^5.0.4"
   },
   "keywords": [
     "capacitor",
-    "electron"
+    "electron",
+    "iptv"
   ]
 }

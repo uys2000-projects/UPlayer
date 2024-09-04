@@ -3,12 +3,7 @@
   "directories": {
     "buildResources": "resources"
   },
-  "files": [
-    "assets/**/*",
-    "build/**/*",
-    "capacitor.config.*",
-    "app/**/*"
-  ],
+  "files": ["assets/**/*", "build/**/*", "capacitor.config.*", "app/**/*"],
   "publish": {
     "provider": "github"
   },
@@ -21,8 +16,8 @@
     "target": "nsis",
     "icon": "assets/appIcon.ico"
   },
-  "mac": {
-    "category": "your.app.category.type",
-    "target": "dmg"
+  "linux": {
+    "category": "AudioVideo",
+    "target": "snap"
   }
 }
