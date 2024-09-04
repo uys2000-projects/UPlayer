@@ -9,8 +9,8 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
-dist
-!./electron/dist/latest.yml
+dist/*
+!electron/dist/latest.yml
 dist-ssr
 coverage
 *.local

@@ -4,6 +4,6 @@
 app
 node_modules
 build
-dist
-!./dist/latest.yml
+dist/*
+!dist/latest.yml
 logs
