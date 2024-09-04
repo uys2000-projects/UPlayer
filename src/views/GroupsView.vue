@@ -43,7 +43,7 @@ export default {
     if (this.authStore.user) {
       this.appStore.toastLabel = "Loading..."
       this.list = await getGroups(this.authStore.user)
-      this.appStore.toastLabel = `Loaded ${this.list.length}`
+      this.appStore.toastLabel = `Loaded ${this.list.length} groups`
     }
   }
 }

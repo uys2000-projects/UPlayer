@@ -7,7 +7,7 @@
     <div class="flex flex-wrap gap-4 justify-center overflow-auto max-h-full flex-shrink">
       <template v-for="item in listGroups">
         <div class="item bg-neutral cursor-pointer relative" @click="() => open(item.id)">
-          <img class="w-96 h-auto min-h-24" :src="item.data.tvg.logo" alt="" loading="lazy">
+          <img class="w-48 h-auto min-h-24" :src="item.data.tvg.logo" alt="" loading="lazy">
           <div class="absolute glass w-full h-full top-0 left-0 opacity-0 flex flex-col justify-center items-center">
             <div class=" text-neutral">
               {{ item.data.name }}
@@ -50,9 +50,8 @@ export default {
       if (this.$route.params.id != "all") {
         this.appStore.toastLabel = "Loading..."
         const group = await getGroup.pLogger(this.authStore.user, this.$route.params.id as string)
-        this.appStore.toastLabel = `Loaded ${group.data}`
         this.list = await getChannels.pLogger(this.authStore.user, group.data)
-        //this.appStore.toastLabel = `Loaded ${this.list.length}`
+        this.appStore.toastLabel = `Loaded ${this.list.length} channels/movies`
       }
     }
   }

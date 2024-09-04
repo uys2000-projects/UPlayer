@@ -3,22 +3,22 @@
     <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
     <ul class="menu bg-neutral min-h-full w-max p-4 gap-2">
       <li>
-        <RouterLink class="btn btn-neutral btn-outline" :to="{ name: 'HomeView' }">
+        <RouterLink class="btn btn-primary" :to="{ name: 'HomeView' }">
           UPlayer
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="btn btn-neutral btn-outline" :to="{ name: 'GroupsView' }">
+        <RouterLink class="btn btn-primary" :to="{ name: 'GroupsView' }">
           Groups
         </RouterLink>
       </li>
       <li class="mt-auto">
-        <RouterLink class="btn btn-neutral btn-outline" :to="{ name: 'SettingsView' }">
+        <RouterLink class="btn btn-primary" :to="{ name: 'SettingsView' }">
           Settings
         </RouterLink>
       </li>
       <li>
-        <a class="btn btn-neutral btn-outline" href="javascript:;" @click="signOut">
+        <a class="btn btn-primary" href="javascript:;" @click="signOut">
           Sign Out
         </a>
       </li>

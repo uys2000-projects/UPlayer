@@ -13,9 +13,7 @@
         v-model="user.data.playlist" />
     </label>
     <div class="flex flex-nowrap w-full gap-2 flex-col lg:flex-row">
-      <button class="btn w-full flex-shrink" @click="() => loadChannels(true)">Load Channels Safely</button>
-      <button class="btn w-full flex-shrink" @click="() => loadChannels(false)">Load Channels</button>
-      <button class="btn w-full flex-shrink" @click="() => loadChannels(null)">Load Channels AllInOne</button>
+      <button class="btn w-full flex-shrink" @click="loadChannels">Load Channels</button>
       <button class="btn w-full flex-shrink" @click="cancel">Cancel</button>
       <button class="btn w-full flex-shrink" @click="update">Save</button>
     </div>
@@ -31,7 +29,7 @@
 
 <script lang="ts">
 import Modal from '@/components/daisy/Modal.vue';
-import { addChannels, addGroups, updateUser } from '@/services/firebase/db';
+import { updateUser } from '@/services/firebase/db';
 import { get } from '@/services/http';
 import { parse } from '@/services/iptv';
 import { useAppStore } from '@/stores/app';
@@ -55,41 +53,17 @@ export default {
     getPlaylist(result: string) {
       return parse.logger(result)
     },
-    async loadChannels(safeMode: boolean | null) {
-      let isCanceled = false
-      const checkCancel = () => {
-        return isCanceled
-      }
-      const cancel = () => {
-        isCanceled = true;
-        this.appStore.toastLabel = ""
-      }
+    async loadChannels() {
       this.appStore.toast = "info"
-      this.appStore.toastLabel = "Playlist has been downloading..."
-      this.appStore.toastCancel = cancel
+      this.appStore.toastLabel = "We are checking the Playlist"
       const response = await this.getFile().catch(() => undefined)
-      if (!response?.result) return this.appStore.toastLabel = "URL Not Accessable..."
-      this.appStore.toastLabel = "Playlist has been parsing..."
-      const playlist = this.getPlaylist(response.result)
-      if (!response?.result) return this.appStore.toastLabel = "Playlist Not Parsable..."
-      this.appStore.toastLabel = `Channels have been uploading...`
-      if (this.authStore.user) {
-        let index = 0;
-        const groups = [... new Set(playlist.items.map(i => i.group.title))]
-        await addGroups(checkCancel, this.authStore.user, groups, () => {
-          index++
-          this.appStore.toastLabel = `Groups have been uploading ${index}/${groups.length}...`
-        }, safeMode)
-        index = 0;
-        await addChannels(checkCancel, this.authStore.user, playlist, () => {
-          index++
-          this.appStore.toastLabel = `Channels have been uploading ${index}/${playlist.items.length}...`
-        }, safeMode)
-
+      if (!response?.result) {
+        this.appStore.toast = "error"
+        this.appStore.toastLabel = "URL Not Accessable."
+      } else {
         this.appStore.toast = "success"
-        this.appStore.toastLabel = "All downloaded and uploaded with parsing..."
+        this.appStore.toastLabel = "Channels are saved."
       }
-
     },
     cancel() {
       if (this.authStore.user) {

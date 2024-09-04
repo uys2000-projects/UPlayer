@@ -1,5 +1,12 @@
 <template>
   <header class="bg-neutral text-neutral-content flex justify-between items-center p-4 z-10">
+    <div class="flex-none lg:hidden">
+      <label for="drawer" aria-label="open sidebar" class="btn btn-square btn-ghost">
+        <span class="material-symbols-outlined text-primary">
+          menu
+        </span>
+      </label>
+    </div>
     <div>
       {{ authStore.user?.data?.name }}
     </div>

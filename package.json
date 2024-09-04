@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force"
@@ -15,6 +15,7 @@
     "@capacitor/android": "^6.1.2",
     "@capacitor/core": "^6.1.2",
     "@capacitor/preferences": "^6.0.2",
+    "capacitor-video-player": "^6.0.0",
     "firebase": "^10.13.1",
     "flv.js": "^1.6.2",
     "iptv-playlist-parser": "^0.13.0",
@@ -26,12 +27,12 @@
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^6.1.2",
     "@tailwindcss/typography": "^0.5.15",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.5",
     "@types/u-logger": "github:uys2000-projects/Types-Ulogger",
-    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.20",
