@@ -32,6 +32,7 @@
 import { useAppStore } from '@/stores/app';
 import Dropdown from './Dropdown.vue';
 import DropdownContent from './DropdownContent.vue';
+import { setPreference } from '@/services/capacitor/preferences';
 
 export default {
   components: {
@@ -45,7 +46,7 @@ export default {
   },
   methods: {
     setTheme(theme: string) {
-      localStorage.setItem("theme", theme);
+      setPreference("theme", theme);
       document.body.setAttribute("data-theme", theme);
     }
   }

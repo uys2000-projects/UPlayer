@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import { routes } from "./routes";
 import { useAuthStore } from "@/stores/auth";
+import { getPreference } from "@/services/capacitor/preferences";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,9 +13,13 @@ router.beforeEach((to, from) => {
   document.title = `${to.meta.title} | Mehmet Uysal`;
 });
 
-router.beforeResolve((to, from) => {
+router.beforeResolve(async (to, from) => {
   const authStore = useAuthStore();
-  if (!authStore.isAuthenticated && to.meta.authReqired)
-    return { name: "AppLoader" };
+  const id = await getPreference("id");
+  if (id) authStore.id = id;
+  if (!authStore.isAuthenticated && to.meta.authRequired)
+    return { name: "LoginView" };
+  if (authStore.isAuthenticated && !to.meta.authRequired)
+    return { name: "HomeView" };
 });
 export default router;
