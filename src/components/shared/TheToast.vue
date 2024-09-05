@@ -1,10 +1,11 @@
 <template>
-  <div class="toast" v-if="appStore.toastLabel">
-    <div class="alert" :class="type">
-      <span class="material-symbols-outlined cursor-pointer" @click="appStore.cancel">
+  <div class="toast bottom-8 right-2" v-if="appStore.toastLabel">
+    <div class="alert pr-6" :class="type">
+      <span class="material-symbols-outlined cursor-pointer absolute top-4 right-4 rounded-full p-1"
+        @click="appStore.cancel">
         cancel
       </span>
-      <span>{{ appStore.toastLabel }}</span>
+      <span class="text-sm">{{ appStore.toastLabel }}</span>
     </div>
   </div>
 </template>
@@ -32,7 +33,7 @@ export default {
         default:
           return ""
       }
-    }
+    },
   }
 }
 </script>

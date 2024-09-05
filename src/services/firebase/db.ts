@@ -54,7 +54,7 @@ export const addChannels = async function (
   for (let i = 0; i < data.items.length; i++) {
     if (checkCancel()) return;
     const item = data.items[i];
-    const docRef = doc(db, "user", user.id, "channels", i.toString());
+    const docRef = doc(db, "user", user.id, "channel", i.toString());
     const channel: UDocument<PlaylistItem> = {
       id: i.toString(),
       data: item,
@@ -82,7 +82,7 @@ export const addGroups = async function (
   for (let i = 0; i < data.length; i++) {
     if (checkCancel()) return;
     const item = data[i];
-    const docRef = doc(db, "user", user.id, "groups", i.toString());
+    const docRef = doc(db, "user", user.id, "group", i.toString());
     const group: UDocument<string> = {
       id: i.toString(),
       data: item,
@@ -101,7 +101,7 @@ export const addGroups = async function (
 };
 
 export const getGroups = async function (user: UDocument<UUser>) {
-  const colRef = collection(db, "user", user.id, "groups");
+  const colRef = collection(db, "user", user.id, "group");
   return (await getDocs(colRef)).docs.map(
     (doc) => doc.data() as UDocument<string>
   );
@@ -111,13 +111,13 @@ export const getGroup = async function (
   user: UDocument<UUser>,
   groudId: string
 ) {
-  const docRef = doc(db, "user", user.id, "groups", groudId);
+  const docRef = doc(db, "user", user.id, "group", groudId);
 
   return (await getDoc(docRef)).data() as UDocument<string>;
 };
 
 export const getChannel = async function (user: UDocument<UUser>, id: string) {
-  const docRef = doc(db, "user", user.id, "channels", id);
+  const docRef = doc(db, "user", user.id, "channel", id);
   return (await getDoc(docRef)).data() as UDocument<PlaylistItem>;
 };
 
@@ -125,7 +125,7 @@ export const getChannels = async function (
   user: UDocument<UUser>,
   groudTitle: string
 ) {
-  const colRef = collection(db, "user", user.id, "channels");
+  const colRef = collection(db, "user", user.id, "channel");
   const queryRef = query(colRef, where("data.group.title", "==", groudTitle));
   return (await getDocs(queryRef)).docs.map(
     (doc) => doc.data() as UDocument<PlaylistItem>

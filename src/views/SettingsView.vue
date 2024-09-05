@@ -17,13 +17,6 @@
       <button class="btn w-full flex-shrink" @click="cancel">Cancel</button>
       <button class="btn w-full flex-shrink" @click="update">Save</button>
     </div>
-    <div class="alert alert-warning mt-auto mb-4">
-      <span class="material-symbols-outlined">
-        warning
-      </span>
-      I am saving channels and groups to access them more memory efficiently, And I am not providing any security for
-      them.
-    </div>
   </div>
 </template>
 
