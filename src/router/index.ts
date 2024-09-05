@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import { routes } from "./routes";
 import { useAuthStore } from "@/stores/auth";
 import { getPreference } from "@/services/capacitor/preferences";
@@ -19,7 +18,5 @@ router.beforeResolve(async (to, from) => {
   if (id) authStore.id = id;
   if (!authStore.isAuthenticated && to.meta.authRequired)
     return { name: "LoginView" };
-  if (authStore.isAuthenticated && !to.meta.authRequired)
-    return { name: "HomeView" };
 });
 export default router;

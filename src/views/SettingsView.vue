@@ -46,9 +46,11 @@ export default {
     }
   },
   methods: {
-    getFile() {
-      const url = encodeURIComponent(this.user.data.playlist)
-      return get(`http://192.168.1.200:3000/get?url=${url}`)
+    async getFile() {
+      if (this.authStore.id) {
+        const url = encodeURIComponent(this.user.data.playlist)
+        return get.pLogger(`https://uplayer-proxy.mehmetuysal.dev/get?id=${this.authStore.id}&url=${url}`)
+      }
     },
     getPlaylist(result: string) {
       return parse.logger(result)
@@ -57,12 +59,12 @@ export default {
       this.appStore.toast = "info"
       this.appStore.toastLabel = "We are checking the Playlist"
       const response = await this.getFile().catch(() => undefined)
-      if (!response?.result) {
+      if (!response?.success) {
         this.appStore.toast = "error"
         this.appStore.toastLabel = "URL Not Accessable."
       } else {
         this.appStore.toast = "success"
-        this.appStore.toastLabel = "Channels are saved."
+        this.appStore.toastLabel = "Channels Readed. Saving Asynchronously..."
       }
     },
     cancel() {

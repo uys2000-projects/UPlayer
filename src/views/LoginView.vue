@@ -1,5 +1,5 @@
 <template>
-  <div class="hero h-page w-full"
+  <div class="hero w-full" :class="{ '-mt-[80px] h-screen': isWeb, 'h-page': !isWeb }"
     style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-neutral-content text-center">
@@ -19,6 +19,7 @@ import { useAuthStore } from '@/stores/auth';
 export default {
   data() {
     return {
+      isWeb: import.meta.env.VITE_BUILD_TYPE == "WEB",
       id: "",
       authStore: useAuthStore()
     }
@@ -28,7 +29,9 @@ export default {
       const user = await getUser(this.id)
       if (user) {
         this.authStore.set(user)
-        this.$router.push({ name: "HomeView" })
+        if (import.meta.env.VITE_BUILD_TYPE == "WEB") {
+          this.$router.push({ name: "SettingsView" })
+        } else this.$router.push({ name: "HomeView" })
       }
     },
     async register() {
@@ -39,8 +42,10 @@ export default {
         this.$router.push({ name: this.$route.redirectedFrom.name })
         return
       }
-      this.$router.push({ name: "HomeView" })
+      if (import.meta.env.VITE_BUILD_TYPE == "WEB") {
+        this.$router.push({ name: "SettingsView" })
+      } else this.$router.push({ name: "HomeView" })
     },
-  }
+  },
 }
 </script>

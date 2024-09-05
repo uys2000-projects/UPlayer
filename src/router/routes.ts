@@ -1,6 +1,5 @@
 import type { RouteRecordRaw } from "vue-router";
-
-export const routes = [
+const appRoutes = [
   {
     path: "/",
     name: "Layout",
@@ -46,3 +45,40 @@ export const routes = [
     ],
   },
 ] as RouteRecordRaw[];
+const webRoutes = [
+  {
+    path: "/",
+    name: "WebLayout",
+    component: () => import("../layouts/WebLayout.vue"),
+    meta: { title: "Base" },
+    children: [
+      {
+        path: "",
+        name: "WebView",
+        component: () => import("../views/WebView.vue"),
+        meta: { title: "Home", authRequired: false },
+      },
+      {
+        path: "about",
+        name: "WebAboutView",
+        component: () => import("../views/WebAboutView.vue"),
+        meta: { title: "Home", authRequired: false },
+      },
+      {
+        path: "login",
+        name: "LoginView",
+        component: () => import("../views/LoginView.vue"),
+        meta: { title: "Login", authRequired: false },
+      },
+      {
+        path: "settings",
+        name: "SettingsView",
+        component: () => import("../views/SettingsView.vue"),
+        meta: { title: "Home", authRequired: true },
+      },
+    ],
+  },
+] as RouteRecordRaw[];
+
+export const routes =
+  import.meta.env.VITE_BUILD_TYPE == "WEB" ? webRoutes : appRoutes;

@@ -17,7 +17,11 @@
     "icon": "assets/appIcon.ico"
   },
   "linux": {
+    "target": "snap",
     "category": "AudioVideo",
-    "target": "snap"
+    "icon": "assets/appIcon.png"
+  },
+  "snap": {
+    "title": "UPlayer"
   }
 }
