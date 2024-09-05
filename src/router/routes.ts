@@ -40,7 +40,7 @@ const appRoutes = [
         path: "settings",
         name: "SettingsView",
         component: () => import("../views/SettingsView.vue"),
-        meta: { title: "Home", authRequired: true },
+        meta: { title: "Settings", authRequired: true },
       },
     ],
   },
@@ -62,7 +62,7 @@ const webRoutes = [
         path: "about",
         name: "WebAboutView",
         component: () => import("../views/WebAboutView.vue"),
-        meta: { title: "Home", authRequired: false },
+        meta: { title: "About Us", authRequired: false },
       },
       {
         path: "login",
@@ -74,7 +74,7 @@ const webRoutes = [
         path: "settings",
         name: "SettingsView",
         component: () => import("../views/SettingsView.vue"),
-        meta: { title: "Home", authRequired: true },
+        meta: { title: "Settings", authRequired: true },
       },
       {
         path: "/:pathMatch(.*)*",
