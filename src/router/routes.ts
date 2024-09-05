@@ -76,6 +76,12 @@ const webRoutes = [
         component: () => import("../views/SettingsView.vue"),
         meta: { title: "Home", authRequired: true },
       },
+      {
+        path: "/:pathMatch(.*)*",
+        name: "NotFoundView",
+        component: () => import("../views/NotFoundView.vue"),
+        meta: { title: "404", authRequired: false },
+      },
     ],
   },
 ] as RouteRecordRaw[];
