@@ -1,6 +1,6 @@
 <template>
   <div class="hero w-full" :class="{ '-mt-[80px] h-screen': isWeb, 'h-page': !isWeb }"
-    style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+    style="background-image: url(/images/user.webp);">
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-neutral-content text-center">
       <div class="max-w-md flex flex-col gap-2">
