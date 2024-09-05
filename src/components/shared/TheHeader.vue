@@ -1,8 +1,13 @@
 <template>
   <header class="bg-neutral text-neutral-content flex justify-between items-center p-4 z-10">
-    <div class="flex-none lg:hidden">
-      <label for="drawer" aria-label="open sidebar" class="btn btn-square btn-ghost">
-        <span class="material-symbols-outlined text-primary">
+    <div class="flex-none flex gap-4 items-center">
+      <label class="btn btn-square btn-primary" v-if="!$route.redirectedFrom">
+        <span class="material-symbols-outlined" @click="back">
+          arrow_back_ios_new
+        </span>
+      </label>
+      <label for="drawer" aria-label="open sidebar" class="btn btn-square btn-primary lg:hidden">
+        <span class="material-symbols-outlined">
           menu
         </span>
       </label>
@@ -25,6 +30,11 @@ export default {
   components: { RouterLink, ThemeBtn },
   data() {
     return { authStore: useAuthStore() }
+  },
+  methods: {
+    back() {
+      this.$router.go(-1)
+    }
   }
 }
 </script>

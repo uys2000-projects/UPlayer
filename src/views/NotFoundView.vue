@@ -5,7 +5,7 @@
       <div class="max-w-md">
         <h1 class="text-8xl font-bold">404</h1>
         <h2 class="mb-5 text-3xl">Page Not Found</h2>
-        <RouterLink class="btn btn-primary" :to="{ name: 'WebView' }">
+        <RouterLink class="btn btn-primary" :to="{ name: 'HomeView' }">
           To Home
         </RouterLink>
       </div>

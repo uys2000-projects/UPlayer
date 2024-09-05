@@ -10,7 +10,7 @@ const appRoutes = [
         path: "",
         name: "LoginView",
         component: () => import("../views/LoginView.vue"),
-        meta: { title: "Login", authRequired: false },
+        meta: { title: "Login", anonRequired: true },
       },
       {
         path: "",
@@ -54,7 +54,7 @@ const webRoutes = [
     children: [
       {
         path: "",
-        name: "WebView",
+        name: "HomeView",
         component: () => import("../views/WebView.vue"),
         meta: { title: "Home", authRequired: false },
       },
@@ -68,7 +68,7 @@ const webRoutes = [
         path: "login",
         name: "LoginView",
         component: () => import("../views/LoginView.vue"),
-        meta: { title: "Login", authRequired: false },
+        meta: { title: "Login", anonRequired: true },
       },
       {
         path: "settings",

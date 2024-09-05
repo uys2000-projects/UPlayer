@@ -1,7 +1,7 @@
 <template>
   <header class="px-4 pt-4 sticky top-0 z-10">
     <div class="bg-neutral text-neutral-content flex justify-between items-center p-4 rounded-box">
-      <RouterLink class="btn btn-sm btn-ghost" :to="{ name: 'WebView' }">
+      <RouterLink class="btn btn-sm btn-ghost" :to="{ name: 'HomeView' }">
         UPlayer IpTV Player
       </RouterLink>
       <div class="flex gap-2">

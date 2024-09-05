@@ -18,5 +18,7 @@ router.beforeResolve(async (to, from) => {
   if (id) authStore.id = id;
   if (!authStore.isAuthenticated && to.meta.authRequired)
     return { name: "LoginView" };
+  if (authStore.isAuthenticated && to.meta.anonRequired)
+    return { name: "HomeView" };
 });
 export default router;

@@ -1,6 +1,6 @@
 {
   "name": "uplayer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple IP TV App",
   "author": {
     "name": "Mehmet Uysal",
@@ -17,8 +17,8 @@
     "build:snap": "npm run build  && electron-builder build --dir -c ./electron-builder.config.json --linux snap",
     "electron:start-live": "node ./live-runner.js",
     "electron:start": "npm run build && electron --inspect=5858 ./",
-    "electron:pack": "npm run build && electron-builder build --dir -c ./electron-builder.config.json --win --linux",
-    "electron:make": "npm run build && electron-builder build -c ./electron-builder.config.json -p always --win --linux",
+    "electron:pack": "npm run build && electron-builder build --dir -c ./electron-builder.config.json --win ",
+    "electron:make": "npm run build && electron-builder build -c ./electron-builder.config.json -p always --linux",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {

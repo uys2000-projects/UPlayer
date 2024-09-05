@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     listGroups() {
-      return [...this.list].filter(i => i.data.name.includes(this.search.toLocaleLowerCase()))
+      return [...this.list].filter(i => i.data.name.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()))
     }
   },
   methods: {

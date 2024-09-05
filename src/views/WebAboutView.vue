@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen w-full -mt-[80px] overflow-auto">
     <div class="hero bg-base-200 min-h-screen">
-      <div class="hero-content flex-col lg:flex-row max-w-3xl">
+      <div class="hero-content flex-col lg:flex-row w-full justify-around">
         <img src="/images/watch.jpeg" class="max-w-xs rounded-lg shadow-2xl" />
         <div>
           <h1 class="text-5xl font-bold">Free</h1>
@@ -9,8 +9,8 @@
         </div>
       </div>
     </div>
-    <div class="hero bg-base-200 min-h-screen">
-      <div class="hero-content flex-col lg:flex-row-reverse  max-w-3xl">
+    <div class="hero bg-base-300 min-h-screen">
+      <div class="hero-content flex-col lg:flex-row-reverse w-full justify-around">
         <img src="/images/bridge.jpeg" class="max-w-xs rounded-lg shadow-2xl" />
         <div>
           <h1 class="text-5xl font-bold">Download Now</h1>
