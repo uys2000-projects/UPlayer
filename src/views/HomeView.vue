@@ -1,5 +1,5 @@
 <template>
-  <div class="hero h-page w-full" style="background-image: url(/home.webp);">
+  <div class="hero h-page w-full" style="background-image: url(/images/city.webp);">
     <div class="hero-overlay bg-opacity-20"></div>
     <div class="hero-content text-neutral-content text-center bg-neutral bg-opacity-90 rounded-box">
       <div class="max-w-md flex flex-col gap-2">
