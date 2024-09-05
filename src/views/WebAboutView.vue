@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="hero min-h-screen" style="background-image: url(/images/code.webp);">
+    <div class="hero min-h-screen bg-fixed" style="background-image: url(/images/code.webp);">
       <div class="hero-overlay bg-opacity-60"></div>
       <div class="hero-content text-neutral-content text-center">
         <div class="max-w-md bg-neutral text-neutral-content p-8 rounded-box bg-opacity-90">

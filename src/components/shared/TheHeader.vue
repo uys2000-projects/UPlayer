@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-neutral text-neutral-content flex justify-between items-center p-4 z-10">
+  <header class="bg-neutral text-neutral-content flex justify-between items-center p-4 z-10 h-20">
     <div class="flex-none flex gap-4 items-center">
       <label class="btn btn-square btn-primary" v-if="!$route.redirectedFrom">
         <span class="material-symbols-outlined" @click="back">
