@@ -1,11 +1,10 @@
-FROM node
+FROM node:alpine
 
 WORKDIR /app
 
-COPY . .
+RUN npm install -g http-server
 
-RUN npm install
+COPY ./dist .
 
-CMD [ "npm", "run", "dev" ]
-
-EXPOSE 3000
+EXPOSE 8080
+CMD [ "http-server", "." ]
