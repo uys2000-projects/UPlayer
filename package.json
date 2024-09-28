@@ -14,6 +14,7 @@
     "@capacitor-community/electron": "^5.0.1",
     "@capacitor/android": "^6.1.2",
     "@capacitor/core": "^6.1.2",
+    "@capacitor/filesystem": "^6.0.1",
     "@capacitor/preferences": "^6.0.2",
     "capacitor-video-player": "^6.0.0",
     "firebase": "^10.13.1",

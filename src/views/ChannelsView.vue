@@ -6,9 +6,12 @@
     </label>
     <div class="flex flex-wrap gap-4 justify-center overflow-auto max-h-full flex-shrink">
       <template v-for="item in listGroups">
-        <div class="item bg-neutral cursor-pointer relative" @click="() => open(item.id)">
-          <img class="w-48 h-auto min-h-24" :src="item.data.tvg.logo" alt="" loading="lazy">
-          <div class="absolute glass w-full h-full top-0 left-0 opacity-0 flex flex-col justify-center items-center">
+        <div class="item bg-neutral cursor-pointer relative flex flex-col" @click="() => open(item.id)">
+          <img class="w-48 h-auto m-auto" :src="item.data.tvg.logo ? item.data.tvg.logo : '/images/404.jpeg'" alt=""
+            loading="lazy">
+          <div
+            class="absolute glass w-full h-full top-0 left-0 opacity-0 flex flex-col justify-center items-center text-white"
+            :class="{ 'opacity-100': !item.data.tvg.logo }">
             <div class=" text-neutral">
               {{ item.data.name }}
             </div>
@@ -61,5 +64,9 @@ export default {
 <style scoped>
 .item:hover .glass {
   @apply opacity-100;
+}
+
+.item:hover * {
+  @apply text-black;
 }
 </style>

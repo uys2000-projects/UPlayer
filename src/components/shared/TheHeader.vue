@@ -1,7 +1,8 @@
 <template>
   <header class="bg-neutral text-neutral-content flex justify-between items-center p-4 z-10 h-20">
     <div class="flex-none flex gap-4 items-center">
-      <label class="btn btn-square btn-primary" v-if="!$route.redirectedFrom" @click="back">
+      <label class="btn btn-square btn-primary" v-if="!['HomeView', 'LoginView'].includes($route.name as string)"
+        @click="back">
         <span class="material-symbols-outlined">
           arrow_back_ios_new
         </span>

@@ -8,7 +8,7 @@
         </transition>
       </router-view>
       <a href="https://snapcraft.io/uplayer" class="fixed right-4 bottom-4" target="_blank">
-        <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+        <img alt="Get it from the Snap Store" src="/images/snap-store-black.svg" />
       </a>
       <TheToast />
     </div>

@@ -7,21 +7,23 @@
           UPlayer
         </RouterLink>
       </li>
-      <li>
-        <RouterLink class="btn btn-primary" :to="{ name: 'GroupsView' }">
-          Groups
-        </RouterLink>
-      </li>
-      <li class="mt-auto">
-        <RouterLink class="btn btn-primary" :to="{ name: 'SettingsView' }">
-          Settings
-        </RouterLink>
-      </li>
-      <li>
-        <a class="btn btn-primary" href="javascript:;" @click="signOut">
-          Sign Out
-        </a>
-      </li>
+      <template v-if="authStore.isAuthenticated">
+        <li>
+          <RouterLink class="btn btn-primary" :to="{ name: 'GroupsView' }">
+            Groups
+          </RouterLink>
+        </li>
+        <li class="mt-auto">
+          <RouterLink class="btn btn-primary" :to="{ name: 'SettingsView' }">
+            Settings
+          </RouterLink>
+        </li>
+        <li>
+          <a class="btn btn-primary" href="javascript:;" @click="signOut">
+            Sign Out
+          </a>
+        </li>
+      </template>
     </ul>
   </div>
 </template>
